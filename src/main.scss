@@ -1,0 +1,18 @@
+/*
+	Import all scss files here!
+*/
+@use './components/app/app';
+
+/*
+    For ease of mind and the small scale of the project i put the "reset"
+	styling rules directly in this file.
+*/
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
