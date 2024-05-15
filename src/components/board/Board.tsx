@@ -5,11 +5,17 @@ type BoardProps = {
 }
 
 const Board = ( { tileList } : BoardProps ) => {
-	console.log("🚀 ~ Board ~ tileList:", tileList)
-
 	return (
 		<ul className="board">
-			<li className="board_tile">1</li>
+			{
+				tileList.map( property => (
+					<li className="board__tile" style={{ gridColumn: property.column, gridRow: property.row }}>
+						<button>
+							{property.number}
+						</button>
+					</li>
+				))
+			}
 		</ul>
 	)
 }
