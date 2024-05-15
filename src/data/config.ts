@@ -1,5 +1,5 @@
 const settings = {
-	"column": 4,
+	"columns": 4,
 	"rows": 4,
 }
 
