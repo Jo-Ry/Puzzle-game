@@ -1,5 +1,7 @@
+import { TileProps } from "../app/validation"
+
 type BoardProps = {
-	tileList: []
+	tileList: TileProps[]
 }
 
 const Board = ( { tileList } : BoardProps ) => {
