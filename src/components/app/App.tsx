@@ -1,9 +1,11 @@
-function App() {
+import Board from "../board/Board"
 
+const App = () => {
     return (
-        <>
-            <p>Hello world</p>
-        </>
+        <div className="site-content">
+            <Board tileList={[]} />
+            <button> Slumpa </button>
+        </div>
     )
 }
 
