@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { TileProps } from "components/app/validation.ts";
 
 type BoardProps = {
@@ -8,9 +8,24 @@ type BoardProps = {
 const Board = ( { tileList } : BoardProps ) => {
 	const [modifiedTileList, setModifiedTileList] = useState<TileProps[]>(tileList)
 
+	/*
+		Ensure that only the relevant tiles can be moved by disabling buttons
+		that should not be pressed.
+	*/
+	const disableNonMovableButtons = useCallback(() => {
+		const emptyTile = tileList.find(value => value.number === tileList.length)
+
+		const updateTiles = tileList.map(value => ({
+			...value,
+			disabled: ( value.column !== emptyTile?.column && value.row !== emptyTile?.row ) || value.number === tileList.length
+		}))
+
+		return updateTiles
+	}, [tileList])
+
 	useEffect(() => {
-        setModifiedTileList(tileList);
-    }, [tileList]);
+        setModifiedTileList(disableNonMovableButtons());
+    }, [tileList, disableNonMovableButtons]);
 
 	return (
 		<ul className="board">
