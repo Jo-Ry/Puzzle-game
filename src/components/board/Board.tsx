@@ -16,8 +16,8 @@ const Board = ( { tileList } : BoardProps ) => {
 		<ul className="board">
 			{modifiedTileList.map( property => (
 				<li key={property.number} className="board__tile" style={{ gridColumn: property.column, gridRow: property.row }}>
-					<button disabled={property.disabled}>
-						{property.number}
+					<button disabled={property.disabled} className="board__tile-button">
+						<p>{property.number}</p>
 					</button>
 				</li>
 			))}
