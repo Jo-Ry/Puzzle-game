@@ -39,19 +39,22 @@ const App = () => {
             Step 2:
 
             By mapping trough the newly updated coordinates array i can achieve two things:
-                * Create a new array where i can safely use the index as the value
-                  inside a new object with the key 'number'.
-                * By having this array seperated instead of just adding it in the first
-                  iteration (step 1), lets me randomize the numbers without altering
-                  the 'column' and 'rows' information as that data should remain the same!
-
-            After that, i merge the two arrays, resulting in an array where the numbers are
-            shuffled but each tile retains its correct positional information.
+                2.1:
+                    Create a new array where i can safely use the index as the value
+                    inside a new object with the key 'number'.
+                2.2:
+                    By having this array seperated instead of just adding it in the first
+                    iteration (step 1), lets me randomize the numbers without altering
+                    the 'column' and 'rows' information as that data should remain the same!
+                2.3
+                    After that, i merge the two arrays with some additional data, resulting in an
+                    array where the numbers are shuffled but each tile retains its correct
+                    positional information.
         */
 
 		/*
             Step 2.1:
-            create a new array with the numbers.
+            create a new array with the numbers specified by the index.
         */
 		const tileNumbers = gridCoordinates().map((_, index) => ({ number: index + 1 }))
 
@@ -64,15 +67,14 @@ const App = () => {
 
 		/*
             Step 2.3:
-            Create a new array with the shuffled numbers, the placement of
-            the tile and the index specifying where each tile exists.
+            Finally, create a new array to describe the basic structure of each tile.
         */
         const initialTileSetup = shuffledTileNumbers.map((value, index) => ({
-            index: index + 1,
-			...value,
-			...gridCoordinates()[index],
-            // The tile with the highest number will always be disabled!
-            disabled: value.number === shuffledTileNumbers.length ? true : false
+            index: index + 1, // The index specifying where each tile exists.
+			...value, // The shuffled numbers.
+			...gridCoordinates()[index], // The placement of the tile.
+            disabled: false, // For now it is set to false.
+            is_empty_tile: value.number === shuffledTileNumbers.length ? true : false // Assign the empty tile.
 		}))
 
         setTiles(initialTileSetup)
