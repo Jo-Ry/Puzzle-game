@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { TileProps } from "./validation";
-import settings from "../../data/config.ts";
-import Board from "../board/Board"
+import settings from "data/config.ts";
+import Board from "components/board/Board"
 
 const App = () => {
     const [ tiles, setTiles ] = useState<TileProps[]>([]);

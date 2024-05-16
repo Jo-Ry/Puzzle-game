@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TileProps } from "../app/validation.ts";
+import { TileProps } from "components/app/validation.ts";
 
 type BoardProps = {
 	tileList: TileProps[]
