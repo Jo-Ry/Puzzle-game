@@ -1,8 +1,7 @@
 export type TileProps = {
-	number: number | null
+	number: number
 	column: number
 	row: number
-	index: number | null
-	disabled: boolean
+	index: number
 	is_empty_tile: boolean
 }

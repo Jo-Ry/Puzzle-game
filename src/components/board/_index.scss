@@ -31,7 +31,7 @@
 			justify-content: center;
 		}
 
-		&--empty {
+		&:disabled {
 			background-color: transparent;
 			color: transparent;
 		}

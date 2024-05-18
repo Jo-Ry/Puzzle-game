@@ -73,7 +73,6 @@ const App = () => {
             index: index + 1, // The index specifying where each tile exists.
 			...value, // The shuffled numbers.
 			...gridCoordinates()[index], // The placement of the tile.
-            disabled: false, // For now it is set to false.
             is_empty_tile: value.number === shuffledTileNumbers.length ? true : false // Assign the empty tile.
 		}))
 
