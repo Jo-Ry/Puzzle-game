@@ -85,8 +85,8 @@ const App = () => {
 
     return (
         <div className="site-content">
-            <Board tileList={tiles} />
-            <button onClick={ () => initializeNewGame() }> Slumpa </button>
+            <Board tileList={tiles} initializeNewGame={initializeNewGame}/>
+            <button onClick={() => initializeNewGame() }> Slumpa </button>
         </div>
     )
 }

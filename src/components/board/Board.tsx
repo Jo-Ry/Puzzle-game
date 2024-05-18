@@ -3,10 +3,12 @@ import { TileProps } from "../app/validation.ts";
 
 type BoardProps = {
 	tileList: TileProps[]
+	initializeNewGame: () => void
 }
 
-const Board = ({ tileList }: BoardProps) => {
+const Board = ({ tileList, initializeNewGame }: BoardProps) => {
 	const [modifiedTileList, setModifiedTileList] = useState<TileProps[]>(tileList)
+	const [modal, setModal] = useState<boolean>(false)
 
 	useEffect(() => {
 		setModifiedTileList(tileList);
@@ -104,23 +106,59 @@ const Board = ({ tileList }: BoardProps) => {
 			});
 
 			setModifiedTileList(updatedTiles);
+
+			if (checkForVictory(updatedTiles)) {
+				setModal(true)
+			}
 		}
 	};
 
+	const checkForVictory = ( tiles: TileProps[] ) => {
+		for (let index = 0; index < tiles.length; index++) {
+			if (tiles[index].index !== tiles[index].number) {
+				return false
+			}
+		}
+
+		return true
+	}
+
 	return (
-		<ul className="board">
-			{modifiedTileList.map( property => (
-				<li key={property.index} className="board__tile" style={{ gridColumn: property.row, gridRow: property.column }}>
-					<button
-						disabled={property.is_empty_tile}
-						onClick={() => handleTileClick(property)}
-						className={`board__tile-button${property.index === property.number ? " board__tile-button--correct-postion" : ""}`}
-					>
-						<p>{property.number}</p>
-					</button>
-				</li>
-			))}
-		</ul>
+		<>
+			<ul className="board">
+				{modifiedTileList.map( property => (
+					<li key={property.index} className="board__tile" style={{ gridColumn: property.row, gridRow: property.column }}>
+						<button
+							onClick={() => handleTileClick(property) }
+							className={`board__tile-button ${property.index === property.number ? " board__tile-button--correct-postion" : ""}`}
+							disabled={property.is_empty_tile}
+						>
+							<p>{property.number}</p>
+						</button>
+					</li>
+				))}
+			</ul>
+
+			{ modal &&
+				<div className="modal">
+					<div className="modal__box">
+						<span className="modal__box-emoji">&#128512;</span>
+						<p>Gratulerar du vann, Vill du testa en till runda ?</p>
+						<div className="modal__box-buttons">
+							<button onClick={() => {
+								setModal(false)
+								initializeNewGame()
+							}}>
+								ja men absolut
+							</button>
+							<button onClick={() => setModal(false) }>
+								nej tack
+							</button>
+						</div>
+					</div>
+				</div>
+			}
+		</>
 	)
 }
 
