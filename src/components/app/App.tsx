@@ -18,10 +18,10 @@ const App = () => {
 
             Also by putting this logic inside a function and then RETURNING the modified array
             Typescripts inherently understand the type structure it has, hence i dont need
-            to manually specify the type like 'TileProps'
+            to manually specify the type like 'TileProps'.
         */
 		const gridCoordinates = () => {
-            const coordinates = []
+            const coordinates = [];
 
             for (let column = 0; column < settings.columns; column++) {
                 for (let row = 0; row < settings.rows; row++) {
@@ -32,7 +32,7 @@ const App = () => {
                 }
             }
 
-            return coordinates
+            return coordinates;
         }
 
         /*
@@ -40,43 +40,32 @@ const App = () => {
 
             By mapping trough the newly updated coordinates array i can achieve two things:
                 2.1:
-                    Create a new array where i can safely use the index as the value
-                    inside a new object with the key 'number'.
+                    Returns a new array with the numbers specified by the index.
                 2.2:
                     By having this array seperated instead of just adding it in the first
                     iteration (step 1), lets me randomize the numbers without altering
                     the 'column' and 'rows' information as that data should remain the same!
                 2.3
-                    After that, i merge the two arrays with some additional data, resulting in an
-                    array where the numbers are shuffled but each tile retains its correct
-                    positional information.
+                    After that, i merge the two arrays with some additional data. Resulting in a
+                    new array with the structure for each tile where the numbers are shuffled but
+                    each tile retains its correct positional information, plus some additional data.
         */
 
-		/*
-            Step 2.1:
-            create a new array with the numbers specified by the index.
-        */
-		const tileNumbers = gridCoordinates().map((_, index) => ({ number: index + 1 }))
+        // Step 2.1:
+		const tileNumbers = gridCoordinates().map((_, index) => ({ number: index + 1 }));
 
-		/*
-            Step 2.2:
-            Shuffle the numbers. Hint: I know this is not the most reliable way to
-            randomly change the items inside an array :D
-        */
-		const shuffledTileNumbers = tileNumbers.sort(() => Math.random() - 0.5)
+        // Step 2.2:
+		const shuffledTileNumbers = tileNumbers.sort(() => Math.random() - 0.5);
 
-		/*
-            Step 2.3:
-            Finally, create a new array to describe the basic structure of each tile.
-        */
+		// Step 2.3:
         const initialTileSetup = shuffledTileNumbers.map((value, index) => ({
-            index: index + 1, // The index specifying where each tile exists.
+            index: index + 1, // The index specifying where each tile exists on the board.
 			...value, // The shuffled numbers.
-			...gridCoordinates()[index], // The placement of the tile.
-            is_empty_tile: value.number === shuffledTileNumbers.length ? true : false // Assign the empty tile.
-		}))
+			...gridCoordinates()[index], // The placement of the tiles.
+            is_empty_tile: value.number === shuffledTileNumbers.length ? true : false // Identify the empty tile
+		}));
 
-        setTiles(initialTileSetup)
+        setTiles(initialTileSetup);
     }, [])
 
     useEffect(() => {
