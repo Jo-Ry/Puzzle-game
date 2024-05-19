@@ -28,6 +28,11 @@ button {
 	cursor: pointer;
 }
 
+p, button {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+}
+
 // Basic styling for page
 #root {
 	min-height: 100vh;
