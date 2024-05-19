@@ -38,7 +38,7 @@ const App = () => {
         /*
             Step 2:
 
-            By mapping trough the newly updated coordinates array i can achieve two things:
+            By mapping trough the newly updated coordinates array, i can apply the following logic:
                 2.1:
                     Returns a new array with the numbers specified by the index.
                 2.2:
@@ -46,6 +46,9 @@ const App = () => {
                     iteration (step 1), lets me randomize the numbers without altering
                     the 'column' and 'rows' information as that data should remain the same!
                 2.3
+                    Sort the grid coordinates array by row to ensure correct tile positions
+                    in the grid / board.
+                2.4
                     After that, i merge the two arrays with some additional data. Resulting in a
                     new array with the structure for each tile where the numbers are shuffled but
                     each tile retains its correct positional information, plus some additional data.
@@ -57,11 +60,14 @@ const App = () => {
         // Step 2.2:
 		const shuffledTileNumbers = tileNumbers.sort(() => Math.random() - 0.5);
 
-		// Step 2.3:
+        // Step 2.3:
+        const sortedGridCoordinates = [...gridCoordinates()].sort(( tileA, tileB ) => tileA.row - tileB.row )
+
+		// Step 2.4:
         const initialTileSetup = shuffledTileNumbers.map((value, index) => ({
             index: index + 1, // The index specifying where each tile exists on the board.
 			...value, // The shuffled numbers.
-			...gridCoordinates()[index], // The placement of the tiles.
+			...sortedGridCoordinates[index], // The placement of the tiles.
             is_empty_tile: value.number === shuffledTileNumbers.length ? true : false // Identify the empty tile
 		}));
 
