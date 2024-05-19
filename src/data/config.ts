@@ -1,6 +1,6 @@
 const settings = {
-	"columns": 4,
-	"rows": 4,
+	"columns": 5,
+	"rows": 5,
 }
 
 export default settings;
