@@ -3,6 +3,7 @@
 */
 @use './components/app';
 @use './components/board';
+@use './components/modal';
 
 /*
     For ease of mind and the small scale of the project i put the "reset"
@@ -22,13 +23,14 @@ body {
 	background-color: hsl(0, 0%, 20%);
 }
 
+button {
+	border: none;
+	cursor: pointer;
+}
+
+// Basic styling for page
 #root {
 	min-height: 100vh;
 	display: grid;
 	align-content: center;
-}
-
-button {
-	border: none;
-	cursor: pointer;
 }
