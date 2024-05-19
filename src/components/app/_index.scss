@@ -1,11 +1,21 @@
 .site-content {
-	padding: 0 1rem;
+	padding: 3rem 1rem;
 	max-width: 832px;
 	width: 100%;
 	margin: auto;
 
+	.hint {
+		text-align: center;
+		margin: 1.3rem 0 clamp(30px, 6vw, 60px) 0;
+		font-size: 14px;
+		color: #eeeeee;
+
+		span {
+			color: orange;
+		}
+	}
+
 	> button {
-		margin-top: clamp(30px, 6vw, 60px);
 		border: none;
 		padding: 1rem 2rem;
 		border-radius: 0.5rem;

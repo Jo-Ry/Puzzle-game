@@ -75,6 +75,9 @@ const App = () => {
     return (
         <div className="site-content">
             <Board tileList={tiles} initializeNewGame={initializeNewGame}/>
+            <p className="hint">
+                <span>Orange</span> Färg indikerar att den är på rätt plats!
+            </p>
             <button onClick={() => initializeNewGame() }> Slumpa </button>
         </div>
     )
