@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { TileProps } from "../app/validation.ts";
 import Modal from "components/modal/Modal.tsx";
+import settings from "data/config.ts";
 
 type BoardProps = {
 	tileList: TileProps[]
@@ -141,9 +142,9 @@ const Board = ({ tileList, initializeNewGame }: BoardProps) => {
 
 	return (
 		<>
-			<ul className="board">
+			<ul className="board" style={{ gridTemplateColumns: `repeat(${settings.columns}, 1fr)` }}>
 				{modifiedTileList.map( property => (
-					<li key={property.index} className="board__tile" style={{ gridColumn: property.row, gridRow: property.column }}>
+					<li key={property.index} className="board__tile">
 						<button
 							onClick={() => handleTileClick(property) }
 							className={`board__tile-button ${property.index === property.number ? " board__tile-button--correct-postion" : ""}`}
@@ -159,6 +160,5 @@ const Board = ({ tileList, initializeNewGame }: BoardProps) => {
 		</>
 	)
 }
-
 
 export default Board
