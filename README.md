@@ -1,6 +1,8 @@
 # Puzzle-game using React.js, Vite and SCSS
 This puzzle game is a generalized variant of the so-called 15-puzzle, as it can handle an arbitrary number of rows and columns. It is built solely as a frontend application.
 
+![Image showing the game](https://github.com/Jo-Ry/Puzzle-game/assets/55887405/fc63b981-8eb2-42eb-961c-d586daf58cf6)
+
 **Features for this project**
 * Allow users to adjust the difficulty level based on their preferences trough a config file that contains the amount of rows and columns on the board.
 * Responsive.
