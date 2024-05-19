@@ -14,9 +14,9 @@ This puzzle game is a generalized variant of the so-called 15-puzzle, as it can 
 
 ## Prerequisites
 
-- **Node.js**: Ensure that you have Node.js installed. You can download it from [nodejs.org][https://nodejs.org/en].
+- **Node.js**: Ensure that you have Node.js installed. You can download it from [nodejs.org](https://nodejs.org/en).
 - **npm**: npm is includeed with Node.js, so you should have it after installing Node.js.
-- **Git**: Ensure that you have git installed. You can download it from [git-scm.com][https://git-scm.com/].
+- **Git**: Ensure that you have git installed. You can download it from [git-scm.com](https://git-scm.com/).
 
 ## Setup and run
 
@@ -27,13 +27,13 @@ This puzzle game is a generalized variant of the so-called 15-puzzle, as it can 
 3. **Run the following command** to clone the repository.
 
 ```bash
-	git@github.com:Jo-Ry/Puzzle-game.git
+git@github.com:Jo-Ry/Puzzle-game.git
 ```
 
 4. **Navigate into your project directory**
 
 ```bash
-	cd puzzle-game
+cd puzzle-game
 ```
 
 ### Step 2: Install dependencies
@@ -41,7 +41,7 @@ This puzzle game is a generalized variant of the so-called 15-puzzle, as it can 
 Inside you project directory, run the following command to install the necessary dependencies:
 
 ```bash
-	npm install
+npm install
 ```
 
 ### Step 3: Run the development server
@@ -49,7 +49,7 @@ Inside you project directory, run the following command to install the necessary
 To start the development server, run:
 
 ```bash
-	npm run dev
+npm run dev
 ```
 
-**Congratulations! You are now able to feast upon the glory of this game :)**
+**_Congratulations! You are now able to feast upon the glory of this game :)_**
