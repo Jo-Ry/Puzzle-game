@@ -55,3 +55,7 @@ npm run dev
 ```
 
 **_Congratulations! You are now able to feast upon the glory of this game :)_**
+
+## Usage
+
+To change the rows and columns, modify the config file under `src/data`.
