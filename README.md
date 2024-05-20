@@ -29,7 +29,7 @@ This puzzle game is a generalized variant of the so-called 15-puzzle, as it can 
 3. **Run the following command** to clone the repository.
 
 ```bash
-git@github.com:Jo-Ry/Puzzle-game.git
+git clone git@github.com:Jo-Ry/Puzzle-game.git
 ```
 
 4. **Navigate into your project directory**
